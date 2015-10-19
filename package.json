@@ -1,5 +1,5 @@
 {
-  "name": "linear-algebra",
+  "name": "nd-linalg",
   "version": "0.0.1",
   "description": "Efficient, unrolled, any-dimensional vector and matrix operations (based on code-builder)",
   "main": "index.js",
@@ -23,10 +23,10 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/citybound/linear-algebra.git"
+    "url": "git://github.com/citybound/nd-linalg.git"
   },
-  "homepage": "https://github.com/citybound/linear-algebra",
+  "homepage": "https://github.com/citybound/nd-linalg",
   "bugs": {
-    "url": "https://github.com/citybound/linear-algebra/issues"
+    "url": "https://github.com/citybound/nd-linalg/issues"
   }
 }
