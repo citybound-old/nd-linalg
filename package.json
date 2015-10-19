@@ -1,0 +1,32 @@
+{
+  "name": "linear-algebra",
+  "version": "0.0.1",
+  "description": "Efficient, unrolled, any-dimensional vector and matrix operations (based on code-builder)",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Anselm Eickhoff",
+    "email": "anselm.eickhoff@gmail.com",
+    "url": "https://github.com/aeickhoff"
+  },
+  "dependencies": {
+    "code-builder": "*"
+  },
+  "devDependencies": {
+    "tape": "^4.2.1"
+  },
+  "scripts": {
+    "compile": "babel --blacklist=regenerator -d src/ es6/",
+    "prepublish": "npm run compile",
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/citybound/linear-algebra.git"
+  },
+  "homepage": "https://github.com/citybound/linear-algebra",
+  "bugs": {
+    "url": "https://github.com/citybound/linear-algebra/issues"
+  }
+}
