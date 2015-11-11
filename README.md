@@ -33,4 +33,4 @@ Your help is highly welcome! :)
 
 ## License
 
-MIT, see [LICENSE.md](http://github.com/aeickhoff/nd-linalg/blob/master/LICENSE.md) for details.
+MIT, see [LICENSE.md](http://github.com/citybound/nd-linalg/blob/master/LICENSE.md) for details.
