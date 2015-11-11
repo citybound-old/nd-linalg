@@ -1,12 +1,12 @@
-var Vector3 = exports;
+var Vector3 = function (x, y, z) {
+	return Vector3.fromValues(x, y, z);
+};
 
 require("./Vector").create(3, Vector3);
 Object.defineProperties(Vector3, {
 	"cross": 	{value: cross}
 });
-//Object.defineProperties(Vector3.fromValues, {
-//	"cross": 	{value: cross}
-//});
+module.exports = Vector3;
 
 function cross(output, a, b) {
 	var ax = a[0], ay = a[1], az = a[2],

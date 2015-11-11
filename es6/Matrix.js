@@ -33,8 +33,8 @@ export function create(dimensions, destination) {
 }
 
 function copy(dimensions) {
-	var source = SourceWriter.create(),
-		cb = CodeBuilder.create(),
+	var source = new SourceWriter(),
+		cb = new CodeBuilder(),
 		out = cb.matrix(dimensions, "out"),
 		m = cb.matrix(dimensions, "m");
 	cb.assign(out, m);
@@ -45,8 +45,8 @@ function copy(dimensions) {
 }
 
 function multiply(dimensions) {
-	var source = SourceWriter.create(),
-		cb = CodeBuilder.create(),
+	var source = new SourceWriter(),
+		cb = new CodeBuilder(),
 		out = cb.matrix(dimensions, "out"),
 		m = cb.matrix(dimensions, "m"),
 		n = cb.matrix(dimensions, "n"),
@@ -60,8 +60,8 @@ function multiply(dimensions) {
 }
 
 function map(dimensions) {
-	var source = SourceWriter.create(),
-		cb = CodeBuilder.create(),
+	var source = new SourceWriter(),
+		cb = new CodeBuilder(),
 		out = cb.vector(dimensions, "out"),
 		m = cb.matrix(dimensions, "m"),
 		v = cb.vector(dimensions, "v"),
@@ -75,10 +75,10 @@ function map(dimensions) {
 }
 
 function determinant(dimensions) {
-	var cb = CodeBuilder.create(),
+	var cb = new CodeBuilder(),
 		m = cb.matrix(dimensions, "m"),
 		det = MatrixFactory.getDeterminant(cb, m),
-		source = SourceWriter.create();
+		source = new SourceWriter();
 	source.tab();
 		cb.write(source, [cb.output(det)]);
 	source.untab();
@@ -86,8 +86,8 @@ function determinant(dimensions) {
 }
 
 function invert(dimensions) {
-	var source = SourceWriter.create(),
-		cb = CodeBuilder.create(),
+	var source = new SourceWriter(),
+		cb = new CodeBuilder(),
 		out = cb.matrix(dimensions, "out"),
 		m = cb.matrix(dimensions, "m"),
 		invert = MatrixFactory.getInvertMatrix(cb, m);
@@ -99,19 +99,19 @@ function invert(dimensions) {
 }
 
 function adjoint(dimensions) {
-	var source = SourceWriter.create();
+	var source = new SourceWriter();
 
 	source.tab();
 	if (dimensions === 2) {
 		source.writeln("if (out === m) {");
-			var cb = CodeBuilder.create(),
+			var cb = new CodeBuilder(),
 				out = cb.matrix(dimensions, "out");
 			adjugate = MatrixFactory.getAdjointMatrix(cb, out);
 			cb.assign(out, adjugate);
 			cb.write(source, [cb.output(out)]);
 		source.writeln("}");
 	}
-	var cb = CodeBuilder.create(),
+	var cb = new CodeBuilder(),
 		out = cb.matrix(dimensions, "out"),
 		adjugate = cb.matrix(dimensions, "m");
 	adjugate = MatrixFactory.getAdjointMatrix(cb, adjugate);
@@ -122,18 +122,18 @@ function adjoint(dimensions) {
 }
 
 function transpose(dimensions) {
-	var source = SourceWriter.create();
+	var source = new SourceWriter();
 	source.tab();
 		source.writeln(`if (out === m) {`);
 		{
-			var cb = CodeBuilder.create();
+			var cb = new CodeBuilder();
 			var out = cb.matrix(dimensions, "out");
 			cb.assign(out, MatrixFactory.getTransposeMatrix(cb, out));
 			cb.write(source, [cb.output(out)]);
 		}
 		source.writeln("}");
 		{
-			var cb = CodeBuilder.create();
+			var cb = new CodeBuilder();
 			var out = cb.matrix(dimensions, "out");
 			var m = cb.matrix(dimensions, "m");
 			cb.assign(out, MatrixFactory.getTransposeMatrix(cb, m));

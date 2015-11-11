@@ -1,4 +1,4 @@
-VectorFactory = exports;
+let VectorFactory = exports;
 
 let min =				(cb, a, b) =>	cb.map("Math.min", a, b),
 	max =				(cb, a, b) =>	cb.map("Math.max", a, b),

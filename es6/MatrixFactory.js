@@ -1,6 +1,8 @@
 var max = Math.max,
 	sqrt = Math.sqrt;
 
+import VectorFactory from "./VectorFactory.js";
+
 export function getRow(cb, matrix, ri) {
 	var dimensions = sqrt(matrix.length);
 	var vector = [];

@@ -1,4 +1,6 @@
-var Vector2 = exports;
+var Vector2 = function (x, y) {
+	return Vector2.fromValues(x, y);
+};
 require("./Vector").create(2, Vector2);
 
 let properties = {
@@ -12,7 +14,7 @@ let properties = {
 }
 
 Object.defineProperties(Vector2, properties);
-//Object.defineProperties(Vector2.fromValues, properties);
+module.exports = Vector2;
 
 function crossz(a, b) {
 	return a[0] * b[1] - b[0] * a[1];
